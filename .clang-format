@@ -1,0 +1,11 @@
+BasedOnStyle: Google
+
+IndentWidth: 4
+
+ColumnLimit: 80
+
+TabWidth: 4
+
+IndentCaseLabels: true
+
+IndentGotoLabels: false

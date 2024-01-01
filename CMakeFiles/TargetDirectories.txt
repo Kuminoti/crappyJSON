@@ -1,0 +1,3 @@
+/mnt/c/Users/User/Documents/1Dev/code/libarys/C++/JSON/CMakeFiles/jsonLX.exe.dir
+/mnt/c/Users/User/Documents/1Dev/code/libarys/C++/JSON/CMakeFiles/edit_cache.dir
+/mnt/c/Users/User/Documents/1Dev/code/libarys/C++/JSON/CMakeFiles/rebuild_cache.dir
