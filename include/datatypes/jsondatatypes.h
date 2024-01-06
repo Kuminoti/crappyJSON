@@ -11,17 +11,21 @@
 class JsonArray {
    private:
     std::string key;
-    bool subArray;
-    int numberOfElements;
+    int numberOfElements();
+
     public:
     std::vector<int> openFoundAt;
     std::vector<int> closedFoundAt;
 
-   public:
-    std::string data;
+    std::string JSdata;
     std::string getByIndex(int index);
-
-    int getIndex(std::string data);
+    
+    static JsonArray createArr(std::string data){
+        return JsonArray(data);
+    }
+    JsonArray(std::string data){
+        this->JSdata = data;
+    }
 
     JsonArray(){
         std::cout<<"lol";

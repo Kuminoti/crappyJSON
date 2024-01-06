@@ -16,7 +16,7 @@ private:
     int findClosedObjects(std::string data);
     int findObjects(std::string data);
     int findArrays(std::string data);
-    int findClosedArrays(std::string);
+    int findClosedArrays(std::string data);
 
 public:
     JSONReader(std::string lol) {
@@ -25,7 +25,7 @@ public:
     }
     bool checkJson(std::string data);
     std::string extractJSobject(std::string data);
-
+    std::string extractJSarray(std::string data);
 };
 
 #endif

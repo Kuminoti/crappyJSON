@@ -3,12 +3,9 @@
 #ifndef JSON_H
 #define JSON_H
 
-// #include"jsondatatypes.h"
+#include"datatypes/jsonreader.h"
 
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+
 
 
 

@@ -10,8 +10,8 @@ bool lol = jsonreader.checkJson(json.getData());
 
 int main(int argc, char** argv) {
     if(lol){
-        std::string test = jsonreader.extractJSobject(json.getData());
-        std::cout<<test;
+        std::string test = jsonreader.extractJSarray(json.getData());
+        std::cout<<"das ist ein test:"<<test;
     }else{
         std::cout<<"OPFAA*2";
     }

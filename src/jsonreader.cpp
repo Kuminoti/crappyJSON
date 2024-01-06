@@ -71,7 +71,7 @@ int JSONReader::findObjects(std::string data) {
 
 std::string JSONReader::extractJSobject(std::string data) {
     int vectorSize = this->JSobject.closedFoundAt.size();
-    int lastIndex = this->JSobject.closedFoundAt.size() - 1;
+    int lastIndex  = this->JSobject.closedFoundAt.size() - 1;
     std::string output;
     for (size_t i = 1; i < vectorSize; i++) {
         int lastPos = this->JSobject.closedFoundAt[lastIndex];
@@ -90,7 +90,28 @@ std::string JSONReader::extractJSobject(std::string data) {
     return output;
 }
 
+std::string JSONReader::extractJSarray(std::string data){
+    int vectorSize = this->JSarray.openFoundAt.size();
+    int lastIndex  = this->JSarray.closedFoundAt.size();
+    std::string output;
+    for (size_t i = 0; i < vectorSize; i++){
+        int lastPos = this->JSarray.closedFoundAt[lastIndex+1];
+        int first = this->JSarray.openFoundAt[i];
+        int last = lastPos - first;
+        std::cout<<"last Index"<<last<<std::endl;
+        output = data.substr(first, last);
 
+        this->arr.push_back(JsonArray::createArr(output));
+        lastIndex--;
+        
+    }
+    for (size_t i = 0; i < vectorSize; i++) {
+        std::cout << "\n\n\"your Arrays" << this->arr[i].JSdata<<"lol"
+                  << std::endl;
+    }
+    return output;
+    
+}
 
 
 
