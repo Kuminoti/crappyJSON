@@ -10,115 +10,7 @@
 #include <string>
 #include <vector>
 
-class JSONanalyser {
-   private:
-    std::vector<std::string> subObject;
-    std::vector<std::string> Objectkey;
 
-    std::vector<std::string> subArray;
-    std::vector<std::string> Arraykey;
-
-    void analyseNesting(std::string dataPath) {}
-
-    bool extractJSONArray(std::string txt) {
-        size_t startPos = 1;
-        size_t nestings = 0;
-        size_t sqBraceOpen;
-        size_t sqBraceClose;
-        bool valid = false;
-
-        while ((sqBraceOpen = txt.find("[", startPos)) != std::string::npos) {
-            nestings++;
-            startPos = sqBraceOpen + 1;
-
-            if ((sqBraceClose = txt.find("]", sqBraceOpen))) {
-                nestings--;
-                std::string nestedArray =
-                    txt.substr(sqBraceOpen, sqBraceClose - sqBraceOpen + 1);
-                subArray.push_back(nestedArray);
-                size_t startPosKey = txt.rfind("\"", sqBraceOpen);
-                if (startPosKey != std::string::npos) {
-                    size_t endPosKey = txt.rfind("\"", startPosKey - 1);
-                    if (endPosKey != std::string::npos) {
-                        std::string ArrayKey = txt.substr(
-                            endPosKey + 1, startPosKey - endPosKey - 1);
-                        std::cout << "Key: " << ArrayKey << "\nvalue"
-                                  << nestedArray << std::endl;
-                        Arraykey.push_back(ArrayKey);
-                    }
-                }
-            }
-        }
-        if (nestings == 0) {
-            valid = true;
-            return true;
-        } else if (nestings > 0) {
-            std::cerr << "Error: Missing ]" << std::endl;
-            valid = false;
-        } else if (nestings < 0) {
-            std::cerr << "Error: Missing [" << std::endl;
-            valid = false;
-        }
-        return valid;
-    }
-
-    bool extractJSONObject(std::string txt) {
-        size_t nestings = 0;
-        size_t startPos = 1;
-        size_t openBracePos;
-        size_t closeBracePos;
-
-        bool valid = false;
-
-        while ((openBracePos = txt.find("{", startPos)) != std::string::npos) {
-            nestings++;
-            startPos = openBracePos + 1;
-
-            if ((closeBracePos = txt.find("}", openBracePos)) !=
-                std::string::npos) {
-                std::string nestedObject = txt.substr(
-                    openBracePos, closeBracePos - openBracePos + nestings);
-                nestings--;
-                subObject.push_back(nestedObject);
-                size_t startPosKey = txt.rfind("\"", openBracePos);
-                if (startPosKey != std::string::npos) {
-                    size_t endPosKey = txt.rfind("\"", startPosKey - 1);
-                    if (endPosKey != std::string::npos) {
-                        std::string objectKey = txt.substr(
-                            endPosKey + 1, startPosKey - endPosKey - 1);
-                        std::cout << "Key: " << objectKey << "\nvalue"
-                                  << nestedObject << std::endl;
-                        Objectkey.push_back(objectKey);
-                    }
-                }
-            }
-        }
-        if (nestings == 0) {
-            valid = true;
-        } else if (nestings > 0) {
-            std::cerr << "Error: Missing }" << std::endl;
-            valid = false;
-        } else if (nestings < 0) {
-            std::cerr << "Error: Missing {" << std::endl;
-            valid = false;
-        }
-        return valid;
-    }
-
-   public:
-    bool analyseJSON(std::string data) {
-        bool objects = extractJSONObject(data);
-        bool arrays = extractJSONArray(data);
-        if (objects && arrays) {
-            return true;
-        } else {
-            std::cerr << "Error invalid json" << std::endl;
-            return false;
-        }
-    }
-
-    void getInfo(std::string info) {}
-};
 
 // Beginn der JSON-klasse
 
@@ -128,18 +20,15 @@ class Json {
     std::string Data;
 
    public:
-    JSONanalyser process;
-
+    
     Json(std::string Data, bool emptyJson) {
-        this->process = JSONanalyser();
-        bool valid = this->process.analyseJSON(Data);
-        if (valid) {
+        
+      
             this->Data = Data;
             this->emptyJson = emptyJson;
-            std::cout << "new JSON" << std::endl;
-        } else {
-            std::cout << "NOOB";
-        }
+            std::cout<<"new Json"<<std::endl;
+            
+        
     }
 
     std::string getData() { return this->Data; }

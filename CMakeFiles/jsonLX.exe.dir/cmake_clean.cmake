@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/jsonLX.exe.dir/main.cpp.o"
   "CMakeFiles/jsonLX.exe.dir/main.cpp.o.d"
+  "CMakeFiles/jsonLX.exe.dir/src/json.cpp.o"
+  "CMakeFiles/jsonLX.exe.dir/src/json.cpp.o.d"
   "jsonLX.exe"
   "jsonLX.exe.pdb"
 )

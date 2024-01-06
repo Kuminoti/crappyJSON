@@ -1,23 +1,18 @@
 {
-    "name": "Daniel",
-    "lastname": "Kuminoti",
-    "age": 21,
-    "birthday": "17.04.2002",
-    "hobbys": {
-        "coding": true,
-        "porn": false,
-        "music": true,
-        "penis": {
-            "lol": 420,
-            "weed":{
-                "roflcopter":true,
-                "drogen":["keine", "keine"]
-            }
-        },
-        "instruments": [
-            "gitarre",
-            "E-gitarre"
-            
-        ]
+    "name": "ich",
+    "alter": 420,
+    "schinken": {
+        "lol": true,
+        "xd": false,
+        "rofl": null,
+        "nihqg": {
+            "lachsMitNutella": "ist: ihhhh bahhhhhh kakaaaaaa",
+            "lol": null,
+            "hobbys": [
+                "coding",
+                "music",
+                []
+            ]
+        }
     }
 }

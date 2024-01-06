@@ -1,10 +1,21 @@
-#include "include/json.h"
+#include"include/json.h"
+#include"include/datatypes/JsonReader.h"
 
-std::string input;
+Json json = Json::readFromFile("jsontest/test.json");
+
+
+JSONReader jsonreader("LOL");
+bool lol = jsonreader.checkJson(json.getData());
+
 
 int main(int argc, char** argv) {
-    Json json = Json::readFromFile("jsontest/test.json");
-    std::cout << "\ndie Json daten\n " << json.getData() << std::endl;
+    if(lol){
+        std::string test = jsonreader.extractJSobject(json.getData());
+        std::cout<<test;
+    }else{
+        std::cout<<"OPFAA*2";
+    }
 
+    
     return 0;
 }

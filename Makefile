@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/jsonLX.exe.dir/build.make CMakeFiles/jsonLX.exe.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/json.o: src/json.cpp.o
+.PHONY : src/json.o
+
+# target to build an object file
+src/json.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/jsonLX.exe.dir/build.make CMakeFiles/jsonLX.exe.dir/src/json.cpp.o
+.PHONY : src/json.cpp.o
+
+src/json.i: src/json.cpp.i
+.PHONY : src/json.i
+
+# target to preprocess a source file
+src/json.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/jsonLX.exe.dir/build.make CMakeFiles/jsonLX.exe.dir/src/json.cpp.i
+.PHONY : src/json.cpp.i
+
+src/json.s: src/json.cpp.s
+.PHONY : src/json.s
+
+# target to generate assembly for a file
+src/json.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/jsonLX.exe.dir/build.make CMakeFiles/jsonLX.exe.dir/src/json.cpp.s
+.PHONY : src/json.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/json.o"
+	@echo "... src/json.i"
+	@echo "... src/json.s"
 .PHONY : help
 
 

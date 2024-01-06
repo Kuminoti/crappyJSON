@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/User/Documents/1Dev/code/libarys/C++/JSON/main.cpp" "CMakeFiles/jsonLX.exe.dir/main.cpp.o" "gcc" "CMakeFiles/jsonLX.exe.dir/main.cpp.o.d"
+  "/mnt/c/Users/User/Documents/1Dev/code/libarys/C++/JSON/src/json.cpp" "CMakeFiles/jsonLX.exe.dir/src/json.cpp.o" "gcc" "CMakeFiles/jsonLX.exe.dir/src/json.cpp.o.d"
   )
 
 # Targets to which this target links.
