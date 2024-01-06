@@ -3,11 +3,7 @@
 #ifndef JSON_H
 #define JSON_H
 
-#include"datatypes/jsonreader.h"
-
-
-
-
+#include "datatypes/jsonreader.h"
 
 // Beginn der JSON-klasse
 
@@ -17,15 +13,10 @@ class Json {
     std::string Data;
 
    public:
-    
     Json(std::string Data, bool emptyJson) {
-        
-      
-            this->Data = Data;
-            this->emptyJson = emptyJson;
-            std::cout<<"new Json"<<std::endl;
-            
-        
+        this->Data = Data;
+        this->emptyJson = emptyJson;
+        std::cout << "new Json" << std::endl;
     }
 
     std::string getData() { return this->Data; }
