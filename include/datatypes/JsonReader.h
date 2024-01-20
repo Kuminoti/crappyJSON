@@ -19,10 +19,7 @@ private:
     int findClosedArrays(std::string data);
 
 public:
-    JSONReader(std::string lol) {
-        std::cout<<lol<<std::endl;
-        
-    }
+ 
     bool checkJson(std::string data);
     std::string extractJSobject(std::string data);
     std::string extractJSarray(std::string data);

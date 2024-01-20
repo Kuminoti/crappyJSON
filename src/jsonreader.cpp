@@ -12,7 +12,7 @@ int JSONReader::findArrays(std::string data) {
     int size = this->JSarray.openFoundAt.size();
 
     for (int i = 0; i < size; i++) {
-        std::cout << "closed" << this->JSarray.openFoundAt[i] << std::endl;
+        std::cout << "OpenArray" << this->JSarray.openFoundAt[i] << std::endl;
     }
     return arrays;
 }
@@ -29,7 +29,7 @@ int JSONReader::findClosedArrays(std::string data) {
     int size = this->JSarray.closedFoundAt.size();
 
     for (int i = 0; i < size; i++) {
-        std::cout << "closed" << this->JSarray.closedFoundAt[i] << std::endl;
+        std::cout << "closedArray" << this->JSarray.closedFoundAt[i] << std::endl;
     }
     return arrays;
 }
@@ -46,7 +46,7 @@ int JSONReader::findClosedObjects(std::string data) {
     int size = this->JSobject.closedFoundAt.size();
 
     for (int i = 0; i < size; i++) {
-        std::cout << "closed" << this->JSobject.closedFoundAt[i] << std::endl;
+        std::cout << "closedObject" << this->JSobject.closedFoundAt[i] << std::endl;
     }
     return closedObjects;
 }
@@ -63,7 +63,7 @@ int JSONReader::findObjects(std::string data) {
     int size = this->JSobject.openFoundAt.size();
 
     for (int i = 0; i < size; i++) {
-        std::cout << "open" << this->JSobject.openFoundAt[i] << std::endl;
+        std::cout << "openObject" << this->JSobject.openFoundAt[i] << std::endl;
     }
 
     return openObjects;
