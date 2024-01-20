@@ -19,8 +19,6 @@ class Json {
     Json(std::string Data, bool emptyJson);
     std::string getData();
 
-    void stringify() {}
-
     std::string getValue(std::string key);
 
     void changeData(std::string key, std::string value);

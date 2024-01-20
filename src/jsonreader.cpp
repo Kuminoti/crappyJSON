@@ -11,9 +11,6 @@ int JSONReader::findArrays(std::string data) {
     }
     int size = this->JSarray.openFoundAt.size();
 
-    for (int i = 0; i < size; i++) {
-        std::cout << "OpenArray" << this->JSarray.openFoundAt[i] << std::endl;
-    }
     return arrays;
 }
 
@@ -28,9 +25,6 @@ int JSONReader::findClosedArrays(std::string data) {
     }
     int size = this->JSarray.closedFoundAt.size();
 
-    for (int i = 0; i < size; i++) {
-        std::cout << "closedArray" << this->JSarray.closedFoundAt[i] << std::endl;
-    }
     return arrays;
 }
 
@@ -45,9 +39,6 @@ int JSONReader::findClosedObjects(std::string data) {
     }
     int size = this->JSobject.closedFoundAt.size();
 
-    for (int i = 0; i < size; i++) {
-        std::cout << "closedObject" << this->JSobject.closedFoundAt[i] << std::endl;
-    }
     return closedObjects;
 }
 
@@ -62,54 +53,10 @@ int JSONReader::findObjects(std::string data) {
     }
     int size = this->JSobject.openFoundAt.size();
 
-    for (int i = 0; i < size; i++) {
-        std::cout << "openObject" << this->JSobject.openFoundAt[i] << std::endl;
-    }
-
     return openObjects;
 }
 
-std::string JSONReader::extractJSobject(std::string data) {
-    int vectorSize = this->JSobject.closedFoundAt.size();
-    int lastIndex = this->JSobject.closedFoundAt.size() - 1;
-    std::string output;
-    for (size_t i = 1; i < vectorSize; i++) {
-        int lastPos = this->JSobject.closedFoundAt[lastIndex];
-        int first = this->JSobject.openFoundAt[i];
-        int last = lastPos - first;
-        output = data.substr(first, last);
 
-        this->obj.push_back(JsonObject::createObj(output));
-        lastIndex--;
-    }
-
-    for (size_t i = 0; i < vectorSize - 1; i++) {
-        std::cout << "\n\n\"your SubObjects" << this->obj[i].JSdata
-                  << std::endl;
-    }
-    return output;
-}
-
-std::string JSONReader::extractJSarray(std::string data) {
-    int vectorSize = this->JSarray.openFoundAt.size();
-    int lastIndex = this->JSarray.closedFoundAt.size();
-    std::string output;
-    for (size_t i = 0; i < vectorSize; i++) {
-        int lastPos = this->JSarray.closedFoundAt[lastIndex - 1] + 1;
-        int first = this->JSarray.openFoundAt[i];
-        int last = lastPos - first;
-        std::cout << "last Index" << last << std::endl;
-        output = data.substr(first, last);
-
-        this->arr.push_back(JsonArray::createArr(output));
-        lastIndex--;
-    }
-    for (size_t i = 0; i < vectorSize; i++) {
-        std::cout << "\n\n\"your Arrays" << this->arr[i].JSdata << "lol"
-                  << std::endl;
-    }
-    return output;
-}
 
 bool JSONReader::checkJson(std::string data) {
     bool OK = false;
@@ -121,7 +68,6 @@ bool JSONReader::checkJson(std::string data) {
         int closedArr = this->findClosedArrays(data);
 
         if (openArr == closedArr) {
-            std::cout << "jubARR" << std::endl;
             OK = true;
         } else {
             std::cerr << "ERROR []" << std::endl;
@@ -131,4 +77,18 @@ bool JSONReader::checkJson(std::string data) {
         std::cout << "ERROR {}" << std::endl;
     }
     return OK;
+}
+
+void dotNotation(std::string key){
+    std::string preDot;
+    std::string afterDot;
+    if(key.find(".") == std::string::npos){
+    //Hier funktion einfügen um daten zu extrahieren.
+    } else {
+
+        size_t foundDot = key.find(".");
+        preDot = key.substr(0, foundDot);
+        afterDot = key.substr(foundDot + 1);
+
+   }
 }

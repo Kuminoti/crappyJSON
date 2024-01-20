@@ -68,8 +68,12 @@ void Json::addData(std::string KeyValue, std::string dataValue) {
 }
 
 std::string Json::getValue(std::string key) {
-    std::string JsonValue;
+    
+    this->process.dotNotation(key);
 
+
+
+    std::string JsonValue;
     size_t keyStart = Data.find("\"" + key + "\"");
     if (keyStart == std::string::npos) {
         std::cerr << "Key not found: " << key << std::endl;

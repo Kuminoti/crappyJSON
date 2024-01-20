@@ -19,7 +19,7 @@ private:
     int findClosedArrays(std::string data);
 
 public:
- 
+    void dotNotation(std::string key);
     bool checkJson(std::string data);
     std::string extractJSobject(std::string data);
     std::string extractJSarray(std::string data);

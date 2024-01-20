@@ -28,7 +28,7 @@ class JsonArray {
     }
 
     JsonArray(){
-        std::cout<<"lol";
+        std::cout<<"";
     }
 };
 
@@ -39,7 +39,7 @@ class JsonObject {
     std::vector<int> openFoundAt;
     std::vector<int> closedFoundAt;
     JsonObject(){
-        std::cout<<"LOL";
+        std::cout<<"";
     }
     static JsonObject createObj(std::string data){
         return JsonObject(data);
